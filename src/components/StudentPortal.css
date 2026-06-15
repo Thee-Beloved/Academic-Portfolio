@@ -1,0 +1,108 @@
+/* Student Portal Simulator Styles */
+
+.portal-demo-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.portal-dashboard-layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+@media (max-width: 1200px) {
+  .portal-dashboard-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.course-ledger-section {
+  padding: 24px;
+  min-height: 500px;
+}
+
+/* Table styles */
+.portal-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.portal-table th {
+  padding: 14px 16px;
+  border-bottom: 2px solid var(--bg-tertiary);
+  font-family: var(--font-heading);
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.portal-table td {
+  padding: 16px;
+  border-bottom: 1px solid var(--card-border);
+  font-size: 0.92rem;
+  vertical-align: middle;
+}
+
+.portal-table tr:hover {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+.gpa-points-indicator {
+  font-family: var(--font-mono);
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--card-border);
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+/* Grade Status Badges */
+.badge-a {
+  background-color: rgba(16, 185, 129, 0.1);
+  color: var(--color-security);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.badge-aminus {
+  background-color: rgba(6, 182, 212, 0.1);
+  color: var(--color-inventory);
+  border: 1px solid rgba(6, 182, 212, 0.2);
+}
+
+.badge-bplus {
+  background-color: rgba(139, 92, 246, 0.1);
+  color: var(--color-analytics);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+}
+
+.badge-b {
+  background-color: rgba(245, 158, 11, 0.1);
+  color: var(--color-warning);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+.badge-cplus {
+  background-color: rgba(249, 115, 22, 0.1);
+  color: #f97316;
+  border: 1px solid rgba(249, 115, 22, 0.2);
+}
+
+.badge-c {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: var(--color-danger);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+/* Transcript styling inside modal */
+.transcript-box {
+  background-color: rgba(0, 0, 0, 0.15);
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  padding: 16px;
+}

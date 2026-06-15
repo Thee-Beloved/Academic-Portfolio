@@ -1,0 +1,171 @@
+/* Skills and Projects Connection Graph Styles */
+
+.skills-graph-container {
+  margin-top: 32px;
+}
+
+.skills-graph-card {
+  padding: 24px;
+}
+
+.text-cyan-glow {
+  color: var(--color-inventory);
+  filter: drop-shadow(0 0 5px rgba(6, 182, 212, 0.4));
+}
+
+.graph-title-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-heading);
+}
+
+.graph-legend-list {
+  display: flex;
+  gap: 16px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.graph-legend-list .legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.graph-subtitle {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+  margin-bottom: 24px;
+}
+
+/* Viewport styling */
+.graph-viewport-wrapper {
+  background-color: #06090e;
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: inset 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.skills-svg-canvas {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* SVG Line & Connections style */
+.graph-link-line {
+  stroke: var(--bg-tertiary);
+  stroke-width: 1.5;
+  opacity: 0.15;
+  transition: stroke 0.3s ease, stroke-width 0.3s ease, opacity 0.3s ease;
+}
+
+.active-link {
+  stroke: #f8fafc;
+  stroke-width: 2.5;
+  opacity: 0.8;
+  stroke-dasharray: 4 2;
+  animation: linkDashShift 2s linear infinite;
+}
+
+@keyframes linkDashShift {
+  to {
+    stroke-dashoffset: -20;
+  }
+}
+
+/* SVG Nodes stylings */
+.graph-node-group {
+  cursor: pointer;
+}
+
+.node-core-circle {
+  transition: r 0.3s ease, stroke-width 0.3s ease, stroke 0.3s ease;
+}
+
+.node-glow-halo {
+  transition: r 0.3s ease, opacity 0.3s ease, fill 0.3s ease;
+}
+
+.graph-node-group text {
+  transition: fill 0.3s ease, font-size 0.3s ease, font-weight 0.3s ease;
+  pointer-events: none; /* Let clicks pass to the circle */
+}
+
+/* Hover effects */
+.node-hovered .node-core-circle {
+  r: 20;
+  stroke-width: 3;
+  fill: var(--bg-dark);
+}
+
+.node-hovered .node-glow-halo {
+  r: 32;
+  opacity: 0.45;
+}
+
+.node-dimmed {
+  opacity: 0.25;
+}
+
+/* Detail Panel under graph */
+.graph-node-detail-panel {
+  margin-top: 16px;
+  min-height: 80px;
+  background-color: rgba(255, 255, 255, 0.01);
+  border: 1px dashed var(--bg-tertiary);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  padding: 16px;
+}
+
+.detail-panel-empty {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  width: 100%;
+  justify-content: center;
+}
+
+.detail-panel-active {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border-left: 3px solid transparent;
+  padding-left: 12px;
+  width: 100%;
+  animation: fadeIn 0.2s ease-out forwards;
+}
+
+.panel-node-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.panel-node-title h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.node-group-badge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #090d16;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.panel-node-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
