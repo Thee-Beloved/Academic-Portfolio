@@ -53,6 +53,11 @@
   --card-border-glow: rgba(6, 182, 212, 0.08);
 }
 
+/* Light theme background override */
+[data-theme='light'] body {
+  background-image: linear-gradient(rgba(241, 245, 249, 0.90), rgba(241, 245, 249, 0.95)), url('/nyc_background.png');
+}
+
 /* Global resets & Scrollbar */
 * {
   margin: 0;
@@ -63,6 +68,11 @@
 body {
   font-family: var(--font-main);
   background-color: var(--bg-dark);
+  background-image: linear-gradient(rgba(9, 13, 22, 0.88), rgba(9, 13, 22, 0.94)), url('/nyc_background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   color: var(--text-primary);
   overflow-x: hidden;
   transition: var(--transition-smooth);
