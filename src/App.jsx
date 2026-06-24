@@ -4,6 +4,7 @@ import StudentPortal from './components/StudentPortal';
 import AcademicChatbot from './components/AcademicChatbot';
 import CloudEcommerce from './components/CloudEcommerce';
 import SkillsGraph from './components/SkillsGraph';
+import ContactForm from './components/ContactForm';
 
 const GithubIcon = ({ size = 16 }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -41,6 +42,8 @@ export default function App() {
         return <AcademicChatbot />;
       case 'ecommerce':
         return <CloudEcommerce />;
+      case 'contact':
+        return <ContactForm />;
       case 'home':
       default:
         return renderHome();
@@ -210,14 +213,21 @@ export default function App() {
               <ShoppingBag size={18} />
               <span className="nav-text">E-Commerce Shop</span>
             </li>
+            <li 
+              className={`nav-item ${activeTab === 'contact' ? 'active active-inventory' : ''}`}
+              onClick={() => setActiveTab('contact')}
+            >
+              <Mail size={18} />
+              <span className="nav-text">Contact Me</span>
+            </li>
           </ul>
         </nav>
 
         <div className="sidebar-footer">
           <div className="social-links">
-            <a href="https://github.com" target="_blank" rel="noreferrer" title="GitHub Profile"><GithubIcon size={16} /></a>
-            <a href="https://linkedin.com" target="_blank" rel="noreferrer" title="LinkedIn Profile"><LinkedinIcon size={16} /></a>
-            <a href="mailto:moses.mugi@student.university.edu" title="Send Email"><Mail size={16} /></a>
+            <a href="https://github.com/Thee-Beloved" target="_blank" rel="noreferrer" title="GitHub Profile"><GithubIcon size={16} /></a>
+            <a href="https://www.linkedin.com/in/moses-mugi-52a553355" target="_blank" rel="noreferrer" title="LinkedIn Profile"><LinkedinIcon size={16} /></a>
+            <a href="mailto:mugim4325@gmail.com" title="Send Email"><Mail size={16} /></a>
           </div>
           <button className="theme-toggle-btn" onClick={toggleTheme} title="Toggle Theme">
             {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}

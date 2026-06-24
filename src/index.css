@@ -55,7 +55,10 @@
 
 /* Light theme background override */
 [data-theme='light'] body {
-  background-image: linear-gradient(rgba(241, 245, 249, 0.90), rgba(241, 245, 249, 0.95)), url('/nyc_background.png');
+  background-image: 
+    linear-gradient(135deg, rgba(6, 182, 212, 0.06) 0%, rgba(139, 92, 246, 0.04) 50%, rgba(16, 185, 129, 0.04) 100%),
+    linear-gradient(rgba(241, 245, 249, 0.55), rgba(248, 250, 252, 0.65)),
+    url('/nyc_background.png');
 }
 
 /* Global resets & Scrollbar */
@@ -68,7 +71,10 @@
 body {
   font-family: var(--font-main);
   background-color: var(--bg-dark);
-  background-image: linear-gradient(rgba(9, 13, 22, 0.88), rgba(9, 13, 22, 0.94)), url('/nyc_background.png');
+  background-image: 
+    linear-gradient(135deg, rgba(6, 182, 212, 0.08) 0%, rgba(139, 92, 246, 0.05) 50%, rgba(16, 185, 129, 0.05) 100%),
+    linear-gradient(rgba(9, 13, 22, 0.45), rgba(15, 23, 42, 0.55)),
+    url('/nyc_background.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -104,17 +110,39 @@ h1, h2, h3, h4, h5, h6 {
 /* Glassmorphism card utility */
 .glass-card {
   background: var(--card-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--card-border);
   border-radius: 16px;
-  box-shadow: var(--shadow-md);
+  box-shadow: 
+    0 8px 32px -8px rgba(0, 0, 0, 0.3),
+    inset 0 1px 1px rgba(255, 255, 255, 0.05);
   transition: var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
 }
 
 .glass-card:hover {
   border-color: var(--card-border-glow);
-  box-shadow: var(--shadow-lg), var(--glow-shadow);
+  box-shadow: 
+    0 12px 48px -12px rgba(6, 182, 212, 0.25),
+    inset 0 1px 1px rgba(255, 255, 255, 0.08);
+  transform: translateY(-2px);
 }
 
 /* Buttons utility */
@@ -184,7 +212,9 @@ h1, h2, h3, h4, h5, h6 {
 
 .sidebar {
   width: var(--sidebar-width);
-  background-color: var(--bg-primary);
+  background-color: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border-right: 1px solid var(--card-border);
   display: flex;
   flex-direction: column;
@@ -192,13 +222,18 @@ h1, h2, h3, h4, h5, h6 {
   position: fixed;
   height: 100vh;
   z-index: 100;
+  transition: var(--transition-smooth);
+}
+
+[data-theme='light'] .sidebar {
+  background-color: rgba(248, 250, 252, 0.7);
 }
 
 .main-content {
   margin-left: var(--sidebar-width);
   flex: 1;
   padding: 40px;
-  background-color: var(--bg-dark);
+  background-color: transparent;
   min-height: 100vh;
   position: relative;
 }
@@ -712,15 +747,39 @@ h1, h2, h3, h4, h5, h6 {
     display: none;
   }
   .social-links {
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
   }
 }
 
 @media (max-width: 768px) {
   .sidebar-footer {
-    display: none; /* hidden on top navbar view for mobile simplicity */
+    display: flex;
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    border-radius: 12px;
+    padding: 16px;
+    margin-top: 20px;
+    border: 1px solid var(--card-border);
+    border-top: 1px solid var(--card-border);
+  }
+  
+  .social-links {
+    flex-direction: row;
+    justify-content: center;
+    gap: 24px;
+    padding: 0;
+  }
+  
+  .social-links a {
+    font-size: 1rem;
+  }
+  
+  .theme-toggle-btn {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 0.9rem;
   }
 }
 
